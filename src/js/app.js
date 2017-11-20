@@ -4,7 +4,7 @@ import { fetchJSON, createEl } from './utils.js'
 
   const OMDB_API_KEY = '610bcae1'
   const MS_API_URL = 'https://cors-anywhere.herokuapp.com/https://mediasignal-quotes.herokuapp.com'
-  const OMDB_API_URL = 'http://www.omdbapi.com'
+  const OMDB_API_URL = 'https://www.omdbapi.com'
 
   const fetchMovies = fetchJSON(MS_API_URL + '/movies')
   const fetchQuotes = fetchJSON(MS_API_URL + '/quotes')
