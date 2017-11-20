@@ -1,0 +1,118 @@
+:root {
+  --color-light: rgb(240, 239, 227);
+  --color-dark: rgb(29, 29, 29);
+  --shadow: 0 .2em .3em rgba(0, 0, 0, 1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+} 
+
+h1, div, blockquote, span, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: 40px;
+  text-align: center;
+  font-size: 16px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.8em;
+  border-bottom: 1px solid var(--color-light);
+  margin-bottom: 1em;
+  padding-bottom: .5em;
+  width: 100%;
+  max-width: 860px;
+  text-shadow: var(--shadow);
+}
+
+.Quote {
+  border: 10px solid var(--color-light);
+  margin-bottom: 2em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 2em;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+  text-shadow: var(--shadow);
+  box-shadow: var(--shadow), inset var(--shadow);
+}
+
+.Quote blockquote {
+  font-style: italic;
+  font-size: 1.8em;
+  line-height: 1.8em;
+  margin-bottom: 1em;
+}
+
+.Quote .movie {
+  display: block;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.Quote .score {
+  display: block;
+}
+
+.Quote img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: .1;
+  filter: blur(10px);
+  transition: filter ease-out .2s;
+}
+
+.Quote:hover img {
+  filter: blur(0);
+  transition: filter ease-in .2s;
+}
+
+body:after {
+  content: "Loading...";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity ease-out .25s, 
+              transform ease-out .25s;
+  transform: scale(.5);
+}
+
+body.loading:after {
+  opacity: 1;
+  font-size: 1em;
+  transform: scale(1);
+}
+
+#container {
+  transition: opacity ease-out .5s;
+  opacity: 1;
+}
+body.loading #container {
+  opacity: 0;
+}
