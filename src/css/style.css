@@ -49,6 +49,12 @@ h1 {
   box-shadow: var(--shadow), inset var(--shadow);
 }
 
+.Quote .position {
+  display: block;
+  font-size: 1.6em;
+  margin-bottom: .8em;
+}
+
 .Quote blockquote {
   font-style: italic;
   font-size: 1.8em;

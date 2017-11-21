@@ -29,11 +29,16 @@ import { fetchJSON, createEl } from './utils.js'
 
       const container = document.getElementById('container');
 
-      return quotes.map(quote => {
+      return quotes.map((quote, index) => {
 
         const el = createEl('div', { 
           class: 'Quote'
         }, container)
+
+        createEl('span', {
+          class: 'position',
+          textContent: `#${index + 1}`
+        }, el)
       
         createEl('blockquote', {
           textContent: quote.content
